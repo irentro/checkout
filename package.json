@@ -1,0 +1,19 @@
+{
+  "name": "checkout",
+  "version": "1.0.0",
+  "description": "checkout box module for airbnb FEC project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irentro/checkout.git"
+  },
+  "author": "Christian Sarmiento",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irentro/checkout/issues"
+  },
+  "homepage": "https://github.com/irentro/checkout#readme"
+}
