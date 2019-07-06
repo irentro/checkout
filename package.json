@@ -4,6 +4,7 @@
   "description": "checkout box module for airbnb FEC project",
   "main": "index.js",
   "scripts": {
+    "seed": "node ./server/db/seed.js",
     "build": "webpack -d --watch",
     "start": "nodemon ./server/index.js"
   },
