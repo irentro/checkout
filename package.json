@@ -4,7 +4,8 @@
   "description": "checkout box module for airbnb FEC project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -d --watch",
+    "start": "nodemon ./server/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,32 @@
   "bugs": {
     "url": "https://github.com/irentro/checkout/issues"
   },
-  "homepage": "https://github.com/irentro/checkout#readme"
+  "homepage": "https://github.com/irentro/checkout#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.19.1",
+    "puppeteer": "^1.18.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "sequelize": "^5.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.8.0",
+    "supertest": "^4.0.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.4"
+  }
 }
