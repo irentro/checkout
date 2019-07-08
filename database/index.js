@@ -66,3 +66,6 @@ Listings.hasMany(Availability);
 Availability.belongsTo(Listings);
 
 sequelize.sync();
+
+module.exports.Listings = Listings;
+module.exports.Availability = Availability;
