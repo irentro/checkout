@@ -66,8 +66,25 @@ const Available_Dates = sequelize.define('available_dates', {
         type: Sequelize.DATEONLY,
         allowNull: false
     }
+});
+
+const Available_Listings = sequelize.define('available_listings', {
+    id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    is_available: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    }
 })
+
+Available_Listings.belongsTo(Listings);
+Available_Listings.belongsTo(Available_Dates);
 
 module.exports.sequelize = sequelize;
 module.exports.Listings = Listings;
 module.exports.Available_Dates = Available_Dates;
+module.exports.Available_Listings = Available_Listings;

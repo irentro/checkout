@@ -8,6 +8,7 @@ const db = require('./index.js');
 
 const listings = [];
 const available_dates = [];
+const available_listings = [];
 
 for (let i = 0; i < 100; i++) {
     const listing = {
@@ -52,12 +53,43 @@ for (let i = 0; i < 100; i++) {
     listings.push(listing);
 }
 
-for (let i = 0; i < 100; i++) {
-    const dates = {
-        date: faker.date.between('2019-07-01', '2019-10-01')
+for (let i = 7; i <= 10; i++) {
+    var month = '';
+    for (let j = 1; j <= 31; j++) {
+        var day = '';
+        if (available_dates.length === 100) {
+            break;
+        }
+        if (i === 9 && j === 31) {
+            continue;
+        }
+        if (String(i).length > 1) {
+            month = String(i);
+        } else {
+            month = '0' + String(i);
+        }
+        if (String(j).length === 1) {
+            day = '0' + String(j);
+        } else {
+            day = String(j); 
+        }
+        var date = {
+            date: '2019-' + month + '-' + day
+        }
+        available_dates.push(date);
     }
-        available_dates.push(dates)
+}
+
+for (let i = 1; i <= 100; i++) {
+    for (let j = 1; j <= 100; j++) {
+        var available = {
+            is_available: faker.random.number(1) ? true : false,
+            listingId: i,
+            availableDateId: j
+        }
+        available_listings.push(available);
     }
+}
 
 db.sequelize.sync();
 
@@ -67,6 +99,11 @@ db.Listings.bulkCreate(listings)
 })
 
 db.Available_Dates.bulkCreate(available_dates)
+.then((data) => {
+    console.log(data);
+})
+
+db.Available_Listings.bulkCreate(available_listings)
 .then((data) => {
     console.log(data);
 })
