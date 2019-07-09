@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Booking from './components/Booking.jsx';
 
-ReactDOM.render(<h1>HELLO</h1>, document.getElementById('app'));
+ReactDOM.render(<Booking />, document.getElementById('app'));
