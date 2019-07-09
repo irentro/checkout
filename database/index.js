@@ -55,17 +55,19 @@ const Listings = sequelize.define('listings', {
     }
 });
 
-const Availability = sequelize.define('availability', {
+const Available_Dates = sequelize.define('available_dates', {
+    id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+    },
     date: {
         type: Sequelize.DATEONLY,
         allowNull: false
     }
 })
 
-Listings.hasMany(Availability);
-Availability.belongsTo(Listings);
-
-sequelize.sync();
-
+module.exports.sequelize = sequelize;
 module.exports.Listings = Listings;
-module.exports.Availability = Availability;
+module.exports.Available_Dates = Available_Dates;
