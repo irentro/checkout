@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Booking extends React.Component {
+class Checkout extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div className="booking-container">
+            <div className="checkout-container">
                 <div className="price">$1,000</div>
                 <p className="per-night">per night</p>
 
@@ -23,9 +23,24 @@ class Booking extends React.Component {
                         </div>
                     </div>
                 </div>
+
+                <div className="line-container">
+                    <div className="line"></div>
+                </div>
+
+                <form className="booking-form">
+                    <div className="calender-component">
+                        <label className="date-label">
+                            <span className="date">Dates</span>
+                        </label>
+                        <div className="checkin-container">
+                            
+                        </div>
+                    </div>
+                </form>
             </div>
         )
     }
 }
 
-export default Booking;
+export default Checkout;
