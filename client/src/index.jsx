@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Booking from './components/Booking.jsx';
+import Checkout from './components/Checkout.jsx';
 
-ReactDOM.render(<Booking />, document.getElementById('app'));
+ReactDOM.render(<Checkout />, document.getElementById('app'));
