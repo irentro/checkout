@@ -3,7 +3,14 @@ import React from 'react';
 class Guests extends React.Component {
     constructor(props) {
         super(props)
-    
+        
+        this.state = {
+            showForm: true
+        }
+    }
+
+    showGuestForm() {
+        
     }
 
     render() {
