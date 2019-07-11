@@ -4,6 +4,7 @@
   "description": "checkout box module for airbnb FEC project",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "seed": "node ./database/seed.js",
     "build": "webpack -d --watch",
     "start": "nodemon ./server/index.js"
@@ -35,15 +36,21 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "babel": "^6.23.0",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^24.8.0",
     "supertest": "^4.0.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.4"
+  },
+  "jest": {
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["<rootDir>/client/src/setupTests.js"]
   }
 }
