@@ -1,5 +1,5 @@
 import React from 'react';
-import Guests from './components/Guests.jsx'
+import Guests from './Guests.jsx'
 import axios from 'axios';
 
 class Checkout extends React.Component {

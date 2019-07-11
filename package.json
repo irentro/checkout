@@ -50,7 +50,8 @@
     "webpack-cli": "^3.3.4"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["<rootDir>/client/src/setupTests.js"]
+    "setupFiles": [
+      "<rootDir>/client/src/setupTests.js"
+    ]
   }
 }
