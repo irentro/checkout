@@ -14,4 +14,22 @@ app.get('/listings', (req, res) => {
     })
 })
 
+app.get('/bookings', (req, res) => {
+    db.Available_Dates.findAll()
+    .then((dates) => {
+        res.send(dates);
+    })
+})
+
+app.get('/bookings/available/:listingId', (req, res) => {
+    db.Available_Listings.findAll({
+        where: {
+            listingId: req.params.listingId
+        }
+    })
+    .then((days) => {
+        res.send(days);
+    })
+})
+
 app.listen(port, console.log(`${port} is lisenting!`));
