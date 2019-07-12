@@ -7,7 +7,13 @@ class Checkout extends React.Component {
         super(props);
         
         this.state = {
-            listing: {}
+            listing: {},
+            numGuests: 1,
+            adults: 1,
+            children: 0,
+            infants: 0,
+            guestText: ' guest',
+            infantText: ""
         }
     }
 
@@ -20,6 +26,106 @@ class Checkout extends React.Component {
                 price: res.data[13].per_night_price.slice(0, -3)
             })
         })
+    }
+
+    incrementAdults() {
+        if (this.state.numGuests === 1) {
+            this.setState({
+                guestText: ' guests'
+            })
+        }
+
+        if (this.state.numGuests < this.state.listing.max_guests) {
+            this.setState({
+                adults: this.state.adults + 1,
+                numGuests: this.state.numGuests + 1
+            })
+        }
+    }
+
+    incrementChildren() {
+        if (this.state.numGuests === 1) {
+            this.setState({
+                guestText: ' guests'
+            })
+        }
+
+        if (this.state.numGuests < this.state.listing.max_guests) {
+            this.setState({
+                children: this.state.children + 1,
+                numGuests: this.state.numGuests + 1
+            })
+        }
+    }
+
+    incrementInfants() {
+        if (this.state.infants === 0) {
+            this.setState({
+                infantText: ', 1 infant'
+            })
+        } else if (this.state.infants > 0 && this.state.infants < 5) {
+            this.setState({
+                infantText: ', ' + (this.state.infants + 1) + ' infants'
+            })
+        }
+
+        if (this.state.infants < 5) {
+            this.setState({
+                infants: this.state.infants + 1
+            })
+        }
+    }
+
+    decrementAdults() {
+        if (this.state.numGuests === 2) {
+            this.setState({
+                guestText: ' guest'
+            })
+        }
+
+        if (this.state.adults > 1) {
+            this.setState({
+                adults: this.state.adults - 1,
+                numGuests: this.state.numGuests - 1
+            })
+        }
+    }
+
+    decrementChildren() {
+        if (this.state.numGuests === 2) {
+            this.setState({
+                guestText: ' guest'
+            })
+        }
+
+        if (this.state.children > 0) {
+            this.setState({
+                children: this.state.children - 1,
+                numGuests: this.state.numGuests - 1
+            })
+        }
+    }
+
+    decrementInfants() {
+        if (this.state.infants === 1) {
+            this.setState({
+                infantText: ''
+            })
+        } else if (this.state.infants === 2) {
+            this.setState({
+                infantText: ', 1 infant'
+            })
+        } else if (this.state.infants > 2) {
+            this.setState({
+                infantText: ', ' + (this.state.infants - 1) + ' infants'
+            })
+        }
+
+        if (this.state.infants > 0) {
+            this.setState({
+                infants: this.state.infants - 1,
+            })
+        }
     }
 
     render() {
@@ -72,7 +178,20 @@ class Checkout extends React.Component {
                         </div>
                     </div>
 
-                    <Guests />
+                    <Guests 
+                        numGuests={this.state.numGuests} 
+                        adults={this.state.adults}
+                        children={this.state.children}
+                        infants={this.state.infants}
+                        guestText={this.state.guestText}
+                        infantText={this.state.infantText}
+                        incrementAdults={this.incrementAdults.bind(this)}
+                        incrementChildren={this.incrementChildren.bind(this)}
+                        incrementInfants={this.incrementInfants.bind(this)}
+                        decrementAdults={this.decrementAdults.bind(this)}
+                        decrementChildren={this.decrementChildren.bind(this)}
+                        decrementInfants={this.decrementInfants.bind(this)}
+                    />
 
                     <button className='reserve-button'>Reserve</button>
                     <p className="no-charge-text">You won’t be charged yet</p>

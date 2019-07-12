@@ -23,14 +23,28 @@ class Guests extends React.Component {
                     <label className="guest-label">
                         <span className="guest">Guests</span>
                     </label>
-                    <button className="guests-button" onClick={this.showGuestForm.bind(this)} value="10 guests">
-                        <div className="init-guests">1 guest</div>
+                    <button className="guests-button" onClick={this.showGuestForm.bind(this)}>
+                        <div className="init-guests">{this.props.numGuests}{this.props.guestText}{this.props.infantText}</div>
                         <img  className='down-arrow' src="https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ExpandMore-512.png"/>
                     </button>
                 </div>
             )
         } else {
-            return <GuestsPanel handleClick={this.showGuestForm.bind(this)}/>
+            return <GuestsPanel 
+                    handleClick={this.showGuestForm.bind(this)}
+                    numGuests={this.props.numGuests} 
+                    adults={this.props.adults}
+                    children={this.props.children}
+                    infants={this.props.infants}
+                    guestText={this.props.guestText}
+                    infantText={this.props.infantText}
+                    incrementAdults={this.props.incrementAdults}
+                    incrementChildren={this.props.incrementChildren}
+                    incrementInfants={this.props.incrementInfants}
+                    decrementAdults={this.props.decrementAdults}
+                    decrementChildren={this.props.decrementChildren}
+                    decrementInfants={this.props.decrementInfants}
+                    />
         }
         
     }
