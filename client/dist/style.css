@@ -181,56 +181,35 @@ body {
     vertical-align: middle;
 }
 
-.guest-selector {
-    border: 0.6px solid rgb(233, 232, 232);
-    border-radius: 1px;
-    height: 20px;
-    width: 170px;
-    display: table-cell;
-}
-
 .guest-component {
     position: relative;
     top: 6px;
 }
 
-.guest-selector-container {
-    /* border: 1px solid; */
-    display: table-cell;
-}
-
-.button-container {
-    width: 200px;
-    display: table-cell;
-}
-
 .guests-button {
-    border: 1px solid transparent;
-    background-color: transparent;
+    border: 0.6px solid rgb(233, 232, 232);
+    border-radius: 1px;
     position: relative;
-    left: -2px;
     text-align: left;
-    height: 20px;
+    height: 21px;
     font-size: 8.5px;
     font-weight: 300;
     display: block;
-    width: 150px;
+    width: 163px;
 }
 
-.down-arrow-container {
-    /* border: 1px solid green; */
-    display: table-cell;
-    width: 0px;;
-    vertical-align: middle;
+.init-guests {
+    position: relative;
+    top: 3px;
 }
 
 .down-arrow {
     position: relative;
-    left: -7px;
+    top: -8px;
     display: table-cell;
-    /* border: 1px solid red; */
-    height: 8px;
-    width: 8px;
+    float: right;
+    height: 13px;
+    width: 13px;
     display: block;
 }
 
@@ -242,7 +221,7 @@ body {
     font-weight: 500;
     color: white;
     height: 23px;
-    width: 163px;
+    width: 162px;
     display: table-cell;
     background-color: rgb(245, 88, 88)
 }
@@ -263,32 +242,190 @@ body {
 }
 
 .text1 {
+    /* margin-bottom: 30px; */
     margin-left: 11px;
     height: 0px;
+    text-align: top;
     font-size: 7px;
     font-weight: 500;
     color: rgb(77, 76, 76);
 }
 
 .lightbulb {
-    width: 25px;
-    margin-right: 5px;
-    position: relative;
-    left: -10px;
     float: right;
-    background-size: 25px;
-    transition: margin-top 0.4s ease 0s;
-    background-repeat: no-repeat;
-    background-position: right center;
+    width: 25px;
+    margin-right: 13px;
+    margin-bottom: 20px;
+    /* transition: margin-top 0.4s ease 0s; */
 }
 
 .text2 {
-    position: relative;
-    top: 5px;
+    margin-top: 12px;
     margin-left: 11px;
     height: 0px;
     font-size: 7px;
     font-weight: 300;
     width: 120px;
     color: rgb(90, 90, 90);
+}
+
+.guests-panel {
+    width: 99.5%;
+    height: 152px;
+    position: absolute;
+    border: 0.6px solid rgb(233, 232, 232);
+    border-top: green;
+    border-radius: 1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px, rgba(0, 0, 0, 0.07) 0px 0px 0px 0px;    
+    background-color: white;
+    z-index: 1;
+}
+
+.adult-counter, .child-counter, .infant-counter {
+    height: 22%;
+    font-size: 9px;
+    vertical-align: center;
+}
+
+.person-types {
+    /* border: 1px solid; */
+    height: 32px;
+    display: table-cell;
+
+}
+
+.Adults, .Children, .Infants {
+    /* border: 1px solid; */
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 10px
+}
+
+.child-infant {
+    position: relative;
+    top: -6px;
+    /* border: 1px solid; */
+    height: 10px;
+    font-size: 7px;
+    color: rgb(95, 95, 95);
+    font-weight: 100;
+}
+
+.increment-container {
+    display: table-cell;
+    width: 100%;
+    /* border: 1px solid red */
+}
+
+.subtract-button {
+    float: left;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 8px;
+    right: 50px;
+    font-size: 12px;
+    color: #007A87;
+    border: .7px solid #007A87;
+    border-radius: 20px;
+}
+
+.adult-count {
+    position: absolute;
+    right: 36px;
+    top: 12px;
+    font-size: 8px;
+}
+
+.add-button {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 8px;
+    right: 10px;
+    font-size: 8px;
+    text-align: middle;
+    color: #007A87;
+    border: .7px solid #007A87;
+    border-radius: 20px;
+}
+
+.child-sub {
+    float: left;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 40px;
+    right: 50px;
+    font-size: 12px;
+    color: #007A87;
+    border: .7px solid #007A87;
+    border-radius: 20px;
+}
+
+.child-count {
+    position: absolute;
+    right: 36px;
+    top: 44px;
+    font-size: 8px;
+}
+
+.child-add {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 40px;
+    right: 10px;
+    font-size: 8px;
+    text-align: middle;
+    color: #007A87;
+    border: .7px solid #007A87;
+    border-radius: 20px;
+}
+
+.infant-sub {
+    float: left;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 74px;
+    right: 50px;
+    font-size: 12px;
+    color: #007A87;
+    border: .7px solid #007A87;
+    border-radius: 20px;
+}
+
+.infant-count {
+    position: absolute;
+    right: 36px;
+    top: 77px;
+    font-size: 8px;
+}
+
+.infant-add {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 74px;
+    right: 10px;
+    font-size: 8px;
+    text-align: middle;
+    color: #007A87;
+    border: .7px solid #007A87;
+    border-radius: 20px;
+}
+
+.max-guests {
+    margin-left: 10px;
+    width: 130px;
+    font-size: 7px;
+    font-weight: 100;
+}
+
+.close-button {
+    float: right;
+    font-size: 8px;
+    color: #007A87;
+    border: 1px solid transparent;
 }

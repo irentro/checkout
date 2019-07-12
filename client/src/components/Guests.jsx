@@ -1,39 +1,52 @@
 import React from 'react';
+import GuestsPanel from './GuestsPanel.jsx';
 
 class Guests extends React.Component {
     constructor(props) {
         super(props)
         
         this.state = {
-            showForm: true
+            showPanel: false
         }
     }
 
     showGuestForm() {
-        
+        this.setState({
+            showPanel: !this.state.showPanel
+        })
     }
 
     render() {
-        return (
-            <div className="guest-component">
-                <label className="guest-label">
-                    <span className="guest">Guests</span>
-                </label>
-                <div className="guest-selector">
-                    <div className="guest-selector-container">
-                        <div className="button-container">
-                            <input className="guests-button" type="button" value="10 guests"></input>
-                        </div>
-                        <div className="down-arrow-container">
-                            <svg className="down-arrow" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
-                                <path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" >
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
+        if (!this.state.showPanel) {
+            return (
+                <div className="guest-component">
+                    <label className="guest-label">
+                        <span className="guest">Guests</span>
+                    </label>
+                    <button className="guests-button" onClick={this.showGuestForm.bind(this)}>
+                        <div className="init-guests">{this.props.numGuests}{this.props.guestText}{this.props.infantText}</div>
+                        <img  className='down-arrow' src="https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ExpandMore-512.png"/>
+                    </button>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return <GuestsPanel 
+                    handleClick={this.showGuestForm.bind(this)}
+                    numGuests={this.props.numGuests} 
+                    adults={this.props.adults}
+                    children={this.props.children}
+                    infants={this.props.infants}
+                    guestText={this.props.guestText}
+                    infantText={this.props.infantText}
+                    incrementAdults={this.props.incrementAdults}
+                    incrementChildren={this.props.incrementChildren}
+                    incrementInfants={this.props.incrementInfants}
+                    decrementAdults={this.props.decrementAdults}
+                    decrementChildren={this.props.decrementChildren}
+                    decrementInfants={this.props.decrementInfants}
+                    />
+        }
+        
     }
 }
 
