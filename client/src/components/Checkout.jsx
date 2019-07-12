@@ -82,11 +82,12 @@ class Checkout extends React.Component {
                 <div className="bottom-line">
                     <div className="line"></div>
                 </div>
-
-                <p className='text1'>
+                <div> 
+                    <p className='text1'>
                     This place is getting a lot of attention.
-                    <img  className='lightbulb' src='https://a0.muscache.com/airbnb/static/packages/icon-uc-light-bulb.1ffc0407.gif'/>
-                </p>
+                    </p>
+                </div>
+                <img  className='lightbulb' src='https://a0.muscache.com/airbnb/static/packages/icon-uc-light-bulb.1ffc0407.gif'/>
                 <p className='text2'>It’s been viewed 500+ times in the past week.</p>
             </div>
         )
