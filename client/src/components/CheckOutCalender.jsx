@@ -89,6 +89,7 @@ class CheckOutCalender extends React.Component {
     }
 
     selectDate(e) {
+        this.props.checkOutSelected();
         this.props.changeCheckOutDate(e.target.value);
         if (this.state.month === 'July') {
             this.props.changeCheckOutMonth('07/')
