@@ -550,3 +550,11 @@ body {
     height: 17px;
     width: 17px;
 }
+
+.day-button {
+    height: 100%;
+    width: 100%;
+    border: 1px solid transparent;
+    text-align: left;
+    font-size: 7px;
+}
