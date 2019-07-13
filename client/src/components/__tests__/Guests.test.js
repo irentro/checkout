@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Checkout from '../Checkout';
+import Guests from '../Guests';
 
 
-describe('Checkout React Component', () => {
+describe('Guests React Component', () => {
   it('should render correctly', () => {
-    shallow(<Checkout />);    
+    shallow(<Guests />);    
   });
 });
