@@ -14,7 +14,9 @@ class Checkout extends React.Component {
             children: 0,
             infants: 0,
             guestText: ' guest',
-            infantText: ""
+            infantText: "",
+            checkInDate: 'Check-in',
+            checkInMonth: ''
         }
     }
 
@@ -27,6 +29,19 @@ class Checkout extends React.Component {
                 price: res.data[13].per_night_price.slice(0, -3)
             })
         })
+    }
+
+    changeCheckInMonth(month) {
+        this.setState({
+            checkInMonth: month
+        })
+    }
+
+    changeCheckInDate(day) {
+        this.setState({
+            checkInDate: String(day) + '/2019'
+        })
+        console.log(this.state.checkInDate)
     }
 
     incrementAdults() {
@@ -154,7 +169,12 @@ class Checkout extends React.Component {
                 </div>
 
                 <div className="booking-form">
-                    <Dates />
+                    <Dates 
+                        changeCheckInDate={this.changeCheckInDate.bind(this)}
+                        changeCheckInMonth={this.changeCheckInMonth.bind(this)}
+                        checkInDate={this.state.checkInDate}
+                        checkInMonth={this.state.checkInMonth}
+                        />
 
                     <Guests 
                         numGuests={this.state.numGuests} 

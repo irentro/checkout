@@ -88,6 +88,19 @@ class CheckInCalender extends React.Component {
         }
     }
 
+    selectDate(e) {
+        this.props.changeCheckInDate(e.target.value);
+        if (this.state.month === 'July') {
+            this.props.changeCheckInMonth('07/')
+        } else if (this.state.month === 'August') {
+            this.props.changeCheckInMonth('08/')
+        } else if (this.state.month === 'September') {
+            this.props.changeCheckInMonth('09/')
+        } else if (this.state.month === 'October') {
+            this.props.changeCheckInMonth('10/')
+        }
+    }
+
     render() {
         return (
             <div className="calender-component">
@@ -97,7 +110,7 @@ class CheckInCalender extends React.Component {
                 <div className="date-selector">
                     <div className="check-in-container">
                         <div className="checkin-input-container">
-                            <input className="checkin-input" onClick={this.props.showCheckIn} placeholder="Check-in">
+                            <input className="checkin-input" onClick={this.props.showCheckIn} placeholder={this.props.checkInMonth + this.props.checkInDate}>
                             </input>
                         </div>
                     </div>
@@ -144,7 +157,7 @@ class CheckInCalender extends React.Component {
                                 <tr className="calender-row">
                                     {week.map((day) => (
                                         <td className="day">
-                                            <input className="day-button" type="button" value={day}></input>
+                                            <input className="day-button" type="button" onClick={this.selectDate.bind(this)} value={day}></input>
                                         </td>
                                     ))}
                                 </tr>
