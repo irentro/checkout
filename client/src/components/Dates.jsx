@@ -8,7 +8,7 @@ class Dates extends React.Component {
 
         this.state = {
             showCheckIn: false,
-            showCheckOut: false
+            showCheckOut: false,
         }
 
         this.showCheckIn = this.showCheckIn.bind(this);
@@ -34,6 +34,10 @@ class Dates extends React.Component {
             return <CheckInCalender 
                     showCheckIn={this.showCheckIn} 
                     showCheckOut={this.showCheckOut}
+                    changeCheckInDate={this.props.changeCheckInDate}
+                    changeCheckInMonth={this.props.changeCheckInMonth}
+                    checkInDate={this.props.checkInDate}
+                    checkInMonth={this.props.checkInMonth}
                     />
         } else if (this.state.showCheckOut) {
             return <CheckOutCalender 
@@ -49,7 +53,7 @@ class Dates extends React.Component {
                     <div className="date-selector">
                         <div className="check-in-container">
                             <div className="checkin-input-container">
-                                <input className="checkin-input" onClick={this.showCheckIn} placeholder="Check-in">
+                                <input className="checkin-input" onClick={this.showCheckIn} placeholder={this.props.checkInMonth + this.props.checkInDate}>
                                 </input>
                             </div>
                         </div>

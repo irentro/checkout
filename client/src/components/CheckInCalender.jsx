@@ -6,7 +6,13 @@ class CheckInCalender extends React.Component {
         super(props);
 
         this.state = {
-            dates: []
+            dates: [],
+            month: 'July',
+            calendar: [[null, 1, 2, 3, 4, 5, 6],
+            [7, 8, 9, 10, 11, 12, 13],
+            [14, 15, 16, 17, 18, 19, 20],
+            [21, 22, 23, 24, 25, 26, 27],
+            [28, 29, 30, 31, null, null, null]]
         }
     }
 
@@ -20,8 +26,82 @@ class CheckInCalender extends React.Component {
         })
     }
 
-    render() {
+    nextMonth() {
+        if(this.state.month === 'July') {
+            this.setState({
+                month: 'August',
+                calendar: [['', '', '', '', 1, 2, 3],
+                [4, 5, 6, 7, 8, 9, 10],
+                [11, 12, 13, 14, 15, 16, 17],
+                [18, 19, 20, 21, 22, 23, 24],
+                [25, 26, 27, 28, 29, 30, 31]]
+            })
+        } else if (this.state.month === 'August') {
+            this.setState({
+                month: 'September',
+                calendar: [[1, 2, 3, 4, 5, 6, 7],
+                [8, 9, 10, 11, 12, 13, 14],
+                [15, 16, 17, 18, 19, 20, 21],
+                [22, 23, 24, 25, 26, 27, 28],
+                [29, 30, '', '', '', '', '']]
+            })
+        } else if (this.state.month === 'September') {
+            this.setState({
+                month: 'October',
+                calendar: [['', '', 1, 2, 3, 4, 5],
+                [6, 7, 8, '', '', '', ''],
+                ['', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '']]
+            })
+        } 
+    }
 
+    previousMonth() {
+        if(this.state.month === 'October') {
+            this.setState({
+                month: 'September',
+                calendar: [[1, 2, 3, 4, 5, 6, 7],
+                [8, 9, 10, 11, 12, 13, 14],
+                [15, 16, 17, 18, 19, 20, 21],
+                [22, 23, 24, 25, 26, 27, 28],
+                [29, 30, '', '', '', '', '']]
+            })
+        } else if (this.state.month === 'September') {
+            this.setState({
+                month: 'August',
+                calendar: [['', '', '', '', 1, 2, 3],
+                [4, 5, 6, 7, 8, 9, 10],
+                [11, 12, 13, 14, 15, 16, 17],
+                [18, 19, 20, 21, 22, 23, 24],
+                [25, 26, 27, 28, 29, 30, 31]]
+            })
+        } else {
+            this.setState({
+                month: 'July',
+                calendar: [['', 1, 2, 3, 4, 5, 6],
+                [7, 8, 9, 10, 11, 12, 13],
+                [14, 15, 16, 17, 18, 19, 20],
+                [21, 22, 23, 24, 25, 26, 27],
+                [28, 29, 30, 31, '', '', '']]
+            })
+        }
+    }
+
+    selectDate(e) {
+        this.props.changeCheckInDate(e.target.value);
+        if (this.state.month === 'July') {
+            this.props.changeCheckInMonth('07/')
+        } else if (this.state.month === 'August') {
+            this.props.changeCheckInMonth('08/')
+        } else if (this.state.month === 'September') {
+            this.props.changeCheckInMonth('09/')
+        } else if (this.state.month === 'October') {
+            this.props.changeCheckInMonth('10/')
+        }
+    }
+
+    render() {
         return (
             <div className="calender-component">
                 <label className="date-label">
@@ -30,7 +110,7 @@ class CheckInCalender extends React.Component {
                 <div className="date-selector">
                     <div className="check-in-container">
                         <div className="checkin-input-container">
-                            <input className="checkin-input" onClick={this.props.showCheckIn} placeholder="Check-in">
+                            <input className="checkin-input" onClick={this.props.showCheckIn} placeholder={this.props.checkInMonth + this.props.checkInDate}>
                             </input>
                         </div>
                     </div>
@@ -48,15 +128,15 @@ class CheckInCalender extends React.Component {
                 </div>
                 <div className="checkin-calender">
                     <div className="calender">
-                        <button className="previous-month-button">
+                        <button className="previous-month-button" onClick={this.previousMonth.bind(this)}>
                             <svg className="left-arrow" viewBox="0 0 1000 1000">
                             <path d="M 336 275 L 126 485 h 806 c 13 0 23 10 23 23 s -10 23 -23 23 H 126 l 210 210 c 11 11 11 21 0 32 c -5 5 -10 7 -16 7 s -11 -2 -16 -7 L 55 524 c -11 -11 -11 -21 0 -32 l 249 -249 c 21 -22 53 10 32 32 Z" />
                             </svg>
                         </button>
                         <div className="month">
-                            July 2019
+                            {this.state.month} 2019
                         </div>
-                        <button className="next-month-button">
+                        <button className="next-month-button" onClick={this.nextMonth.bind(this)}>
                             <svg className="right-arrow" viewBox="0 0 1000 1000">
                             <path d="M694 242l249 250c12 11 12 21 1 32L694 773c-5 5-10 7-16 7s-11-2-16-7c-11-11-11-21 0-32l210-210H68c-13 0-23-10-23-23s10-23 23-23h806L662 275c-21-22 11-54 32-33z" />
                             </svg>
@@ -73,51 +153,15 @@ class CheckInCalender extends React.Component {
                     </div>
                     <table className="table-container">
                         <tbody className="calender-container">
-                            <tr className="calender-row">
-                                <td className="day"></td>
-                                <td className="day">1</td>
-                                <td className="day">2</td>
-                                <td className="day">3</td>
-                                <td className="day">4</td>
-                                <td className="day">5</td>
-                                <td className="day">6</td>
-                            </tr>
-                            <tr className="calender-row">
-                                <td className="day">7</td>
-                                <td className="day">8</td>
-                                <td className="day">9</td>
-                                <td className="day">10</td>
-                                <td className="day">11</td>
-                                <td className="day">12</td>
-                                <td className="day">13</td>
-                            </tr>
-                            <tr className="calender-row">
-                                <td className="day">14</td>
-                                <td className="day">15</td>
-                                <td className="day">16</td>
-                                <td className="day">17</td>
-                                <td className="day">18</td>
-                                <td className="day">19</td>
-                                <td className="day">20</td>
-                            </tr>
-                            <tr className="calender-row">
-                                <td className="day">21</td>
-                                <td className="day">22</td>
-                                <td className="day">23</td>
-                                <td className="day">24</td>
-                                <td className="day">25</td>
-                                <td className="day">26</td>
-                                <td className="day">27</td>
-                            </tr>
-                            <tr className="calender-row">
-                                <td className="day">28</td>
-                                <td className="day">29</td>
-                                <td className="day">30</td>
-                                <td className="day">31</td>
-                                <td className="day"></td>
-                                <td className="day"></td>
-                                <td className="day"></td>
-                            </tr>
+                            {this.state.calendar.map((week) => (
+                                <tr className="calender-row">
+                                    {week.map((day) => (
+                                        <td className="day">
+                                            <input className="day-button" type="button" onClick={this.selectDate.bind(this)} value={day}></input>
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
