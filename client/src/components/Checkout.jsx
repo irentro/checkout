@@ -1,6 +1,7 @@
 import React from 'react';
 import Guests from './Guests.jsx';
 import Dates from './Dates.jsx';
+import Quote from './Quote.jsx';
 import axios from 'axios';
 
 class Checkout extends React.Component {
@@ -17,8 +18,10 @@ class Checkout extends React.Component {
             infantText: "",
             checkInDate: 'Check-in',
             checkInMonth: '',
+            checkInSelected: false,
             checkOutDate: 'Checkout',
-            checkOutMonth: ''
+            checkOutMonth: '',
+            checkOutSelected: false,
         }
     }
 
@@ -28,8 +31,21 @@ class Checkout extends React.Component {
             console.log(res.data[13])
             this.setState({
                 listing: res.data[13],
-                price: res.data[13].per_night_price.slice(0, -3)
+                price: res.data[13].per_night_price.slice(0, -3),
+                extraGuestFee: res.data[13].extra_guest_fee.slice(0, -3)
             })
+        })
+    }
+
+    checkInSelected() {
+        this.setState({
+            checkInSelected: true
+        })
+    }
+
+    checkOutSelected() {
+        this.setState({
+            checkOutSelected: true
         })
     }
 
@@ -160,11 +176,12 @@ class Checkout extends React.Component {
     }
 
     render() {
+        let price = Number(this.state.price) + (Number(this.state.numGuests - 1) * Number(this.state.extraGuestFee));
 
         return (
             <div className="checkout-container">
-                <div className="price">${this.state.price}</div>
-                <p className="per-night">per night</p>
+                <div className="price">${price}</div>
+                <div className="per-night">per night</div>
 
                 <div className="stars-container">
                     <div className="stars-bar">
@@ -208,6 +225,11 @@ class Checkout extends React.Component {
                         decrementAdults={this.decrementAdults.bind(this)}
                         decrementChildren={this.decrementChildren.bind(this)}
                         decrementInfants={this.decrementInfants.bind(this)}
+                    />
+
+                    <Quote 
+                        checkInSelected={this.state.checkInSelected} 
+                        checkOutSelected={this.state.checkOutSelected}
                     />
 
                     <button className='reserve-button'>Reserve</button>
