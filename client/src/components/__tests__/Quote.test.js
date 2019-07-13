@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Checkout from '../Checkout.jsx';
+import Quote from '../Quote.jsx';
 
-
-describe('Checkout React Component', () => {
+describe('Quote React Component', () => {
   it('should render correctly', () => {
-    shallow(<Checkout />);    
+    shallow(<Quote />);    
   });
 });
