@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../style.css';
 
 class Quote extends React.Component {
     constructor(props) {
@@ -15,44 +16,44 @@ class Quote extends React.Component {
             let total = Number(initFee) + Number(serviceFee) + Number(cleaningFee) + Number(localTaxes);
 
             return (
-                <div className="quote-container">
-                    <div className="top-fee-container">
-                        <div className="fee-type">
+                <div className={styles.quoteContainer}>
+                    <div className={styles.topFeeContainer}>
+                        <div className={styles.feeType}>
                             {'$' + this.props.price + ' x ' + nights + ' nights'}
                         </div>
-                        <div className="fee-total">
+                        <div className={styles.feeTotal}>
                             {'$' + initFee}
                         </div>
                     </div>
-                    <div className="fee-container">
-                        <div className="fee-type">
+                    <div className={styles.feeContainer}>
+                        <div className={styles.feeType}>
                             Cleaning Fee
                         </div>
-                        <div className="fee-total">
+                        <div className={styles.feeTotal}>
                             {'$' + cleaningFee}
                         </div>
                     </div>
-                    <div className="fee-container">
-                        <div className="fee-type">
+                    <div className={styles.feeContainer}>
+                        <div className={styles.feeType}>
                             Service Fee
                         </div>
-                        <div className="fee-total">
+                        <div className={styles.feeTotal}>
                             {'$' + serviceFee}
                         </div>
                     </div>
-                    <div className="fee-container">
-                        <div className="fee-type">
+                    <div className={styles.feeContainer}>
+                        <div className={styles.feeType}>
                             Occupancy taxes and fees
                         </div>
-                        <div className="fee-total">
+                        <div className={styles.feeTotal}>
                             {'$' + localTaxes}
                         </div>
                     </div>
-                    <div className="fee-container">
-                        <div className="bottom-fee-type">
+                    <div className={styles.feeContainer}>
+                        <div className={styles.bottomFeeType}>
                             Total
                         </div>
-                        <div className="bottom-fee-total">
+                        <div className={styles.bottomFeeTotal}>
                             {'$' + total}
                         </div>
                     </div>

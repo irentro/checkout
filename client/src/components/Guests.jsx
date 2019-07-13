@@ -1,5 +1,7 @@
 import React from 'react';
 import GuestsPanel from './GuestsPanel.jsx';
+import styles from '../style.css';
+
 
 class Guests extends React.Component {
     constructor(props) {
@@ -19,13 +21,13 @@ class Guests extends React.Component {
     render() {
         if (!this.state.showPanel) {
             return (
-                <div className="guest-component">
-                    <label className="guest-label">
-                        <span className="guest">Guests</span>
+                <div className={styles.guestComponent}>
+                    <label className={styles.guestLabel}>
+                        <span className={styles.guest}>Guests</span>
                     </label>
-                    <button className="guests-button" onClick={this.showGuestForm.bind(this)}>
-                        <div className="init-guests">{this.props.numGuests}{this.props.guestText}{this.props.infantText}</div>
-                        <img  className='down-arrow' src="https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ExpandMore-512.png"/>
+                    <button className={styles.guestsButton} onClick={this.showGuestForm.bind(this)}>
+                        <div className={styles.initGuests}>{this.props.numGuests}{this.props.guestText}{this.props.infantText}</div>
+                        <img className={styles.downArrow} src="https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ExpandMore-512.png"/>
                     </button>
                 </div>
             )

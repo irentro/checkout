@@ -17,10 +17,17 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader']
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      }]
+      { test: /\.css$/, use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: {
+            localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+        },
+      ]}]
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']

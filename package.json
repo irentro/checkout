@@ -40,11 +40,13 @@
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^24.8.0",
+    "style-loader": "^0.23.1",
     "supertest": "^4.0.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.4"
