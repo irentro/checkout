@@ -5,11 +5,12 @@ body {
 .checkout-container {
     border: 0.6px solid rgb(233, 232, 232);
     width: 185px;
-    height: 232px;
+    padding-bottom: 25px;
 }
 
 .price {
     /* border: 1px solid black; */
+    position: relative;
     margin: 0px;
     font-size: 11px;
     font-weight: bold;
@@ -23,9 +24,10 @@ body {
 
 .per-night {
     /* border: 1px solid black; */
+    position: relative;
     font-size: 6px;
     margin: 0px;
-    padding-left: 16px;
+    padding-left: 23px;
     padding-top: 13px;
     height: 0px;
     width: 30px;
@@ -557,4 +559,41 @@ body {
     border: 1px solid transparent;
     text-align: left;
     font-size: 7px;
+}
+
+.quote-container {
+    position: relative;
+    height: 93px;
+    /* border: 1px solid; */
+}
+
+.top-fee-container {
+    position: relative;
+    top: 8px;
+    height: 20%;
+}
+
+.fee-container {
+    position: relative;
+    top: 8px;
+    height: 20%;
+    /* margin: auto; */
+    border-top: solid .6px rgb(233, 232, 232);
+
+}
+
+.fee-type {
+    border: 1px solid;
+    /* display: table-cell; */
+    float: left;
+    font-size: 5px;
+}
+
+.fee-total {
+    position: relative;
+    left: 84px;
+    border: 1px solid;
+    display: table-cell;
+    /* float: right */
+    font-size: 5px;
 }
