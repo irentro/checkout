@@ -21,7 +21,7 @@ class Checkout extends React.Component {
             checkInSelected: false,
             checkOutDate: 'Checkout',
             checkOutMonth: '',
-            checkOutSelected: false,
+            checkOutSelected: false
         }
     }
 
@@ -38,12 +38,14 @@ class Checkout extends React.Component {
     }
 
     checkInSelected() {
+        console.log('checkin is true');
         this.setState({
             checkInSelected: true
         })
     }
 
     checkOutSelected() {
+        console.log('checkout is true');
         this.setState({
             checkOutSelected: true
         })
@@ -57,7 +59,8 @@ class Checkout extends React.Component {
 
     changeCheckOutDate(day) {
         this.setState({
-            checkOutDate: String(day) + '/2019'
+            checkOutDate: String(day) + '/2019',
+            checkOutDay: day
         })
         console.log(this.state.checkOutDate)
     }
@@ -70,7 +73,8 @@ class Checkout extends React.Component {
 
     changeCheckInDate(day) {
         this.setState({
-            checkInDate: String(day) + '/2019'
+            checkInDate: String(day) + '/2019',
+            checkInDay: day
         })
         console.log(this.state.checkInDate)
     }
@@ -210,6 +214,8 @@ class Checkout extends React.Component {
                         checkInMonth={this.state.checkInMonth}
                         checkOutDate={this.state.checkOutDate}
                         checkOutMonth={this.state.checkOutMonth}
+                        checkInSelected={this.checkInSelected.bind(this)}
+                        checkOutSelected={this.checkOutSelected.bind(this)}
                         />
 
                     <Guests 
@@ -230,6 +236,12 @@ class Checkout extends React.Component {
                     <Quote 
                         checkInSelected={this.state.checkInSelected} 
                         checkOutSelected={this.state.checkOutSelected}
+                        price={price}
+                        cleaningFee={this.state.listing.cleaning_fee}
+                        localTaxes={this.state.listing.local_taxes}
+                        serviceFee={this.state.listing.service_fee}
+                        checkInDay={this.state.checkInDay}
+                        checkOutDay={this.state.checkOutDay}
                     />
 
                     <button className='reserve-button'>Reserve</button>

@@ -89,6 +89,7 @@ class CheckInCalender extends React.Component {
     }
 
     selectDate(e) {
+        this.props.checkInSelected();
         this.props.changeCheckInDate(e.target.value);
         if (this.state.month === 'July') {
             this.props.changeCheckInMonth('07/')

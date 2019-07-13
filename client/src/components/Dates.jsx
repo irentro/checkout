@@ -40,6 +40,7 @@ class Dates extends React.Component {
                     checkInMonth={this.props.checkInMonth}
                     checkOutDate={this.props.checkOutDate}
                     checkOutMonth={this.props.checkOutMonth}
+                    checkInSelected={this.props.checkInSelected}
                     />
         } else if (this.state.showCheckOut) {
             return <CheckOutCalender 
@@ -51,6 +52,7 @@ class Dates extends React.Component {
                     checkOutMonth={this.props.checkOutMonth}
                     checkInDate={this.props.checkInDate}
                     checkInMonth={this.props.checkInMonth}
+                    checkOutSelected={this.props.checkOutSelected}
                     />
         } else {        
             return (
