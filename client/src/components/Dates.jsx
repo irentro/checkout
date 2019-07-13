@@ -38,11 +38,19 @@ class Dates extends React.Component {
                     changeCheckInMonth={this.props.changeCheckInMonth}
                     checkInDate={this.props.checkInDate}
                     checkInMonth={this.props.checkInMonth}
+                    checkOutDate={this.props.checkOutDate}
+                    checkOutMonth={this.props.checkOutMonth}
                     />
         } else if (this.state.showCheckOut) {
             return <CheckOutCalender 
                     showCheckIn={this.showCheckIn} 
                     showCheckOut={this.showCheckOut}
+                    changeCheckOutDate={this.props.changeCheckOutDate}
+                    changeCheckOutMonth={this.props.changeCheckOutMonth}
+                    checkOutDate={this.props.checkOutDate}
+                    checkOutMonth={this.props.checkOutMonth}
+                    checkInDate={this.props.checkInDate}
+                    checkInMonth={this.props.checkInMonth}
                     />
         } else {        
             return (
@@ -64,7 +72,7 @@ class Dates extends React.Component {
                         </div>
                         <div className="check-out-container">
                             <div className="checkout-input-container">
-                                <input className="checkout-input" onClick={this.showCheckOut} placeholder="Checkout">
+                                <input className="checkout-input" onClick={this.showCheckOut} placeholder={this.props.checkOutMonth + this.props.checkOutDate}>
                                 </input>
                             </div>
                         </div>

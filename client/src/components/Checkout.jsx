@@ -16,7 +16,9 @@ class Checkout extends React.Component {
             guestText: ' guest',
             infantText: "",
             checkInDate: 'Check-in',
-            checkInMonth: ''
+            checkInMonth: '',
+            checkOutDate: 'Checkout',
+            checkOutMonth: ''
         }
     }
 
@@ -29,6 +31,19 @@ class Checkout extends React.Component {
                 price: res.data[13].per_night_price.slice(0, -3)
             })
         })
+    }
+
+    changeCheckOutMonth(month) {
+        this.setState({
+            checkOutMonth: month
+        })
+    }
+
+    changeCheckOutDate(day) {
+        this.setState({
+            checkOutDate: String(day) + '/2019'
+        })
+        console.log(this.state.checkOutDate)
     }
 
     changeCheckInMonth(month) {
@@ -172,8 +187,12 @@ class Checkout extends React.Component {
                     <Dates 
                         changeCheckInDate={this.changeCheckInDate.bind(this)}
                         changeCheckInMonth={this.changeCheckInMonth.bind(this)}
+                        changeCheckOutDate={this.changeCheckOutDate.bind(this)}
+                        changeCheckOutMonth={this.changeCheckOutMonth.bind(this)}
                         checkInDate={this.state.checkInDate}
                         checkInMonth={this.state.checkInMonth}
+                        checkOutDate={this.state.checkOutDate}
+                        checkOutMonth={this.state.checkOutMonth}
                         />
 
                     <Guests 
