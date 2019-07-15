@@ -46,6 +46,7 @@
     "enzyme-to-json": "^3.3.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^24.8.0",
+    "jest-css-modules": "^2.1.0",
     "style-loader": "^0.23.1",
     "supertest": "^4.0.2",
     "webpack": "^4.29.6",
@@ -54,6 +55,9 @@
   "jest": {
     "setupFiles": [
       "<rootDir>/client/src/setupTests.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   }
 }
