@@ -22,7 +22,8 @@ class Checkout extends React.Component {
             checkInSelected: false,
             checkOutDate: 'Checkout',
             checkOutMonth: '',
-            checkOutSelected: false
+            checkOutSelected: false,
+            maxGuests: 0
         }
     }
 
@@ -33,7 +34,8 @@ class Checkout extends React.Component {
             this.setState({
                 listing: res.data[13],
                 price: res.data[13].per_night_price.slice(0, -3),
-                extraGuestFee: res.data[13].extra_guest_fee.slice(0, -3)
+                extraGuestFee: res.data[13].extra_guest_fee.slice(0, -3),
+                maxGuests: res.data[13].max_guests
             })
         })
     }
@@ -87,7 +89,7 @@ class Checkout extends React.Component {
             })
         }
 
-        if (this.state.numGuests < this.state.listing.max_guests) {
+        if (this.state.numGuests < this.state.maxGuests) {
             this.setState({
                 adults: this.state.adults + 1,
                 numGuests: this.state.numGuests + 1
@@ -102,7 +104,7 @@ class Checkout extends React.Component {
             })
         }
 
-        if (this.state.numGuests < this.state.listing.max_guests) {
+        if (this.state.numGuests < this.state.maxGuests) {
             this.setState({
                 children: this.state.children + 1,
                 numGuests: this.state.numGuests + 1
