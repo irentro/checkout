@@ -40,18 +40,34 @@ class Checkout extends React.Component {
         })
     }
 
-    checkInSelected() {
-        console.log('checkin is true');
-        this.setState({
-            checkInSelected: true
-        })
+    checkInSelected(val) {
+        if (val === 'clear') {
+            console.log('checkin is false');
+            this.setState({
+                checkInSelected: false,
+                checkInDate: 'Check-in'
+            })
+        } else {
+            console.log('checkin is true');
+            this.setState({
+                checkInSelected: true
+            })
+        }
     }
 
-    checkOutSelected() {
-        console.log('checkout is true');
-        this.setState({
-            checkOutSelected: true
-        })
+    checkOutSelected(val) {
+        if (val === 'clear') {
+            console.log('checkout is false');
+            this.setState({
+                checkOutSelected: false,
+                checkOutDate: 'Checkout'
+            })
+        } else {
+            console.log('checkout is true');
+            this.setState({
+                checkOutSelected: true
+            })
+        }
     }
 
     changeCheckOutMonth(month) {

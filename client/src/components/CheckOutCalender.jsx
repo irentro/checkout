@@ -90,16 +90,22 @@ class CheckOutCalender extends React.Component {
     }
 
     selectDate(e) {
-        this.props.checkOutSelected();
-        this.props.changeCheckOutDate(e.target.value);
-        if (this.state.month === 'July') {
-            this.props.changeCheckOutMonth('07/')
-        } else if (this.state.month === 'August') {
-            this.props.changeCheckOutMonth('08/')
-        } else if (this.state.month === 'September') {
-            this.props.changeCheckOutMonth('09/')
-        } else if (this.state.month === 'October') {
-            this.props.changeCheckOutMonth('10/')
+        if (e.target.value === 'clear') {
+            this.props.changeCheckOutDate('Checkout');
+            this.props.checkOutSelected(e.target.value);
+            this.props.changeCheckOutMonth('');
+        } else {
+            this.props.checkOutSelected();
+            this.props.changeCheckOutDate(e.target.value);
+            if (this.state.month === 'July') {
+                this.props.changeCheckOutMonth('07/')
+            } else if (this.state.month === 'August') {
+                this.props.changeCheckOutMonth('08/')
+            } else if (this.state.month === 'September') {
+                this.props.changeCheckOutMonth('09/')
+            } else if (this.state.month === 'October') {
+                this.props.changeCheckOutMonth('10/')
+            }
         }
     }
 
@@ -166,6 +172,9 @@ class CheckOutCalender extends React.Component {
                             ))}
                         </tbody>
                     </table>
+                </div>
+                <div>
+                    <button className={styles.clearButton} onClick={this.selectDate.bind(this)} value="clear">Clear Dates</button>
                 </div>
             </div>
         )

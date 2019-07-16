@@ -615,3 +615,13 @@ body {
     font-size: 6px;
     font-weight: bold;
 }
+
+.clearButton {
+    position: absolute;
+    top: 245px;
+    left: 130px;
+    border: 1px solid transparent;
+    font-size: 7px;
+    color: black;
+    z-index: 2;
+}

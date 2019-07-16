@@ -90,16 +90,22 @@ class CheckInCalender extends React.Component {
     }
 
     selectDate(e) {
-        this.props.checkInSelected();
-        this.props.changeCheckInDate(e.target.value);
-        if (this.state.month === 'July') {
-            this.props.changeCheckInMonth('07/')
-        } else if (this.state.month === 'August') {
-            this.props.changeCheckInMonth('08/')
-        } else if (this.state.month === 'September') {
-            this.props.changeCheckInMonth('09/')
-        } else if (this.state.month === 'October') {
-            this.props.changeCheckInMonth('10/')
+        if (e.target.value === 'clear') {
+            this.props.changeCheckInDate('Check-in');
+            this.props.checkInSelected(e.target.value);
+            this.props.changeCheckInMonth('');
+        } else {
+            this.props.checkInSelected();
+            this.props.changeCheckInDate(e.target.value);
+            if (this.state.month === 'July') {
+                this.props.changeCheckInMonth('07/')
+            } else if (this.state.month === 'August') {
+                this.props.changeCheckInMonth('08/')
+            } else if (this.state.month === 'September') {
+                this.props.changeCheckInMonth('09/')
+            } else if (this.state.month === 'October') {
+                this.props.changeCheckInMonth('10/')
+            }
         }
     }
 
@@ -123,7 +129,7 @@ class CheckInCalender extends React.Component {
                     </div>
                     <div className={styles.checkOutContainer}>
                         <div className={styles.checkoutInputContainer}>
-                            <input className={styles.checkoutInput} onClick={this.props.showCheckOut} placeholder="Checkout">
+                            <input className={styles.checkoutInput} onClick={this.props.showCheckOut} placeholder={this.props.checkOutMonth + this.props.checkOutDate}>
                             </input>
                         </div>
                     </div>
@@ -166,6 +172,9 @@ class CheckInCalender extends React.Component {
                             ))}
                         </tbody>
                     </table>
+                </div>
+                <div>
+                    <button className={styles.clearButton} onClick={this.selectDate.bind(this)} value="clear">Clear Dates</button>
                 </div>
             </div>
         )
