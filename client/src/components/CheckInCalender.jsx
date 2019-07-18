@@ -172,9 +172,9 @@ class CheckInCalender extends React.Component {
                             ))}
                         </tbody>
                     </table>
-                </div>
-                <div>
-                    <button className={styles.clearButton} onClick={this.selectDate.bind(this)} value="clear">Clear Dates</button>
+                    <div>
+                        <button className={styles.clearButton} onClick={this.selectDate.bind(this)} value="clear">Clear Date</button>
+                    </div>
                 </div>
             </div>
         )

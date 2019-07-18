@@ -3,8 +3,9 @@ const app = express();
 const port = 3000;
 const db = require('../database');
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/Reservation', express.static('client/dist'));
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/listings', (req, res) => {
