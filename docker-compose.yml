@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=checkout
+      - MYSQL_USER=root
+      
+  reservations:
+    build: ./
+    depends_on:
+      - 'database'
+    ports: 
+      - '1000:3001'

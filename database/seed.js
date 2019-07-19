@@ -1,8 +1,3 @@
-/************
-From database directory, run mysql -u root < schema.sql in terminal,
-then npm run seed twice
-************/
-
 const faker = require('faker');
 const db = require('./index.js');
 
@@ -91,7 +86,7 @@ for (let i = 1; i <= 100; i++) {
     }
 }
 
-db.sequelize.sync();
+// db.sequelize.sync();
 
 db.Listings.bulkCreate(listings)
 .then((data) => {

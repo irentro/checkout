@@ -7,7 +7,10 @@
     "test": "jest",
     "seed": "node ./database/seed.js",
     "build": "webpack -d --watch",
-    "start": "nodemon ./server/index.js"
+    "start": "nodemon ./server/index.js",
+    "database": "node ./database/index.js",
+    "createDatabase": "mysql -u root < ./database/schema.sql",
+    "start:docker": "npm run database && npm run seed && npm run start"
   },
   "repository": {
     "type": "git",
@@ -26,7 +29,6 @@
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
     "nodemon": "^1.19.1",
-    "puppeteer": "^1.18.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "sequelize": "^5.9.0"

@@ -1,17 +1,9 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('checkout', 'root', null, {
-  host: 'localhost',
-  dialect: 'mysql'
-});
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
+  host: '172.17.0.2',
+  dialect: 'mysql',
+  login: false
 });
 
 const Listings = sequelize.define('listings', {
@@ -83,6 +75,10 @@ const Available_Listings = sequelize.define('available_listings', {
 
 Available_Listings.belongsTo(Listings);
 Available_Listings.belongsTo(Available_Dates);
+
+sequelize.sync()
+  .then(() => console.log('Connection has been established successfully'))
+  .catch(err => console.log(err));
 
 module.exports.sequelize = sequelize;
 module.exports.Listings = Listings;
