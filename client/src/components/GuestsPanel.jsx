@@ -56,7 +56,7 @@ class GuestsPanel extends React.Component {
                             <button className={styles.infantAdd} onClick={this.props.incrementInfants}>+</button>
                         </div>   
                     </div>
-                    <p className={styles.maxGuests}>10 guests maximum. Infants don't count towards the number of guests.</p>
+                    <p className={styles.maxGuests}>{this.props.maxGuests} guests maximum. Infants don't count towards the number of guests.</p>
                     <button className={styles.closeButton} onClick={this.props.handleClick}>Close</button>
                 </div>
             </div>

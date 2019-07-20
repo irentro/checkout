@@ -244,6 +244,7 @@ class Checkout extends React.Component {
                         infants={this.state.infants}
                         guestText={this.state.guestText}
                         infantText={this.state.infantText}
+                        maxGuests={this.state.maxGuests}
                         incrementAdults={this.incrementAdults.bind(this)}
                         incrementChildren={this.incrementChildren.bind(this)}
                         incrementInfants={this.incrementInfants.bind(this)}

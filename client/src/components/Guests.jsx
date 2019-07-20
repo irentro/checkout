@@ -40,6 +40,7 @@ class Guests extends React.Component {
                     infants={this.props.infants}
                     guestText={this.props.guestText}
                     infantText={this.props.infantText}
+                    maxGuests={this.props.maxGuests}
                     incrementAdults={this.props.incrementAdults}
                     incrementChildren={this.props.incrementChildren}
                     incrementInfants={this.props.incrementInfants}
