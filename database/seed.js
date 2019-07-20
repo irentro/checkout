@@ -1,6 +1,5 @@
 /************
-From database directory, run mysql -u root < schema.sql in terminal,
-then npm run seed twice
+From database directory, run mysql -u root < schema.sql in terminal
 ************/
 
 const faker = require('faker');
