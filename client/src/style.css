@@ -273,7 +273,7 @@ body {
 .lightbulb {
     /* float: right; */
     position: absolute;
-    right: 130px;
+    right: 170px;
     width: 45px;
     /* transition: margin-top 0.4s ease 0s; */
 }
