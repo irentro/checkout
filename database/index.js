@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('checkout', 'root', null, {
-  host: '172.17.0.2',
+  host: 'localhost',
   dialect: 'mysql',
   login: false
 });

@@ -271,10 +271,11 @@ body {
 }
 
 .lightbulb {
-    /* float: right; */
-    position: absolute;
-    right: 170px;
+    float: right;
+    /* position: absolute; */
+    /* right: 170px; */
     width: 45px;
+    padding-right: 10px;
     /* transition: margin-top 0.4s ease 0s; */
 }
 
